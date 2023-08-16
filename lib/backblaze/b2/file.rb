@@ -8,7 +8,7 @@ module Backblaze::B2
         @versions = versions
       else
         @fetched_all = false
-        @versions = [FileVersion.new(file_version_args.merge(file_name: file_name))]
+        @versions = [FileVersion.new(**file_version_args.merge(file_name: file_name))]
       end
     end
 
@@ -92,7 +92,7 @@ module Backblaze::B2
           action: 'upload'
         }
 
-        File.new(params)
+        File.new(**params)
       end
     end
 
